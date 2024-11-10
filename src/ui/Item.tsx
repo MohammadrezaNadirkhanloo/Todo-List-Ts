@@ -1,32 +1,48 @@
-import { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { removeTodo, toggleComplete } from "../Redux/todo/todoListSlice";
 
-const ItemList: React.FC = () => {
-  const [isActive, setisActive] = useState(false);
+interface Props {
+  id: number;
+  title: string;
+  complete: boolean;
+}
+const ItemList: React.FC<Props> = ({ title, complete, id }) => {
+  const dispatch = useDispatch();
+
   const handelChecked = () => {
-    setisActive((prev) => !prev);
+    dispatch(toggleComplete(id));
+  };
+  const handelDelete = () => {
+    dispatch(removeTodo(id));
   };
 
   return (
     <>
-      <div className="flex items-center gap-x-6 bg-gray-400 px-6 py-3 my-4 rounded-lg border border-gray-300">
-        <input
-          type="checkbox"
-          checked={isActive}
-          onChange={handelChecked}
-          className="checkbox checkbox-sm checkbox-primary checked:checkbox-secondary"
-        />
-        <p
-          className={`  ${
-            isActive ? "text-gray-300 line-through" : "text-gray-100"
-          }`}
+      <div
+        className={`grid grid-cols-12 justify-between gap-x-6 bg-gray-400 px-6 py-3 my-4 rounded-lg shadow ${
+          complete ? "" : "border border-gray-300"
+        }`}
+      >
+        <div className="flex items-center gap-x-6 col-span-11">
+          <input
+            type="checkbox"
+            checked={complete}
+            onChange={handelChecked}
+            className="checkbox checkbox-sm checkbox-primary checked:checkbox-secondary"
+          />
+          <p
+            className={` truncate  ${
+              complete ? "text-gray-300 line-through" : "text-gray-100"
+            }`}
+          >
+            {title}
+          </p>
+        </div>
+        <button
+          onClick={handelDelete}
+          className="btn btn-ghost hover:text-error hover:bg-gray-400 text-gray-200 px-3 justify-end"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-          nulla est quae dicta, atque corporis quasi consectetur officiis
-          excepturi, soluta consequuntur consequatur beatae quidem. Dolore
-          nostrum dolores voluptatibus repellat ut?
-        </p>
-        <button className="btn btn-ghost hover:text-error hover:bg-gray-400 text-gray-200 px-3">
           <RiDeleteBin6Line size={22} />
         </button>
       </div>
