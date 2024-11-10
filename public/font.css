@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "ClashGrotesk";
+  src: url("/fonts/ClashGrotesk-Medium.woff2") format("woff2"),
+    url("/fonts/ClashGrotesk-Medium.woff") format("woff"),
+    url("/fonts/ClashGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ClashGrotesk";
+  src: url("/fonts/ClashGrotesk-Semibold.woff2") format("woff2"),
+    url("/fonts/ClashGrotesk-Semibold.woff") format("woff"),
+    url("/fonts/ClashGrotesk-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}

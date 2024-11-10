@@ -1,0 +1,25 @@
+@import url("/font.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "ClashGrotesk";
+  user-select: none;
+}
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+button {
+  cursor: pointer;
+  outline: none;
+} 
+
