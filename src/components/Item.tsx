@@ -7,7 +7,7 @@ function Item() {
 
   useEffect(() => {
     setfirst((prev) => !prev);
-  }, [first]);
+  }, []);
 
   if (!first) return <Itemnot />;
   return (
