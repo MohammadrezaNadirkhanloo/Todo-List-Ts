@@ -9,7 +9,8 @@ function Item() {
   const count = useSelector((state: RootState) => state.todoList);
 
   useEffect(() => {
-    if (count.length) setfirst(true);
+    if (count.length) return setfirst(true);
+    setfirst(false);
   }, [count]);
 
   if (!first) return <Itemnot />;
