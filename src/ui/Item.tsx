@@ -20,11 +20,11 @@ const ItemList: React.FC<Props> = ({ title, complete, id }) => {
   return (
     <>
       <div
-        className={`grid grid-cols-12 justify-between gap-x-6 bg-gray-400 px-6 py-3 my-4 rounded-lg shadow ${
+        className={`flex justify-between gap-x-6 bg-gray-400 px-6 py-3 my-4 rounded-lg shadow ${
           complete ? "" : "border border-gray-300"
         }`}
       >
-        <div className="flex items-center gap-x-6 col-span-11">
+        <div className="flex items-center gap-x-6 w-5/6 ">
           <input
             type="checkbox"
             checked={complete}
@@ -39,12 +39,15 @@ const ItemList: React.FC<Props> = ({ title, complete, id }) => {
             {title}
           </p>
         </div>
+        <div className="flex-none">
+
         <button
           onClick={handelDelete}
           className="btn btn-ghost hover:text-error hover:bg-gray-400 text-gray-200 px-3 justify-end"
         >
           <RiDeleteBin6Line size={22} />
         </button>
+        </div>
       </div>
     </>
   );

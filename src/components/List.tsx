@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Item from "./Item";
+import Item from "./ItemList";
 import { RootState } from "../Redux/store";
 
 function List() {
